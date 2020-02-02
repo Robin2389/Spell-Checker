@@ -12,10 +12,13 @@ tfile = open('./TEXTS/bible.txt', 'r')
 d = dfile.read()
 dictionary = d.split("\n")
 
+tstart = time.time()
 #Set Up Text
 t = tfile.read()
 pattern = re.compile(r"[a-zA-Z]+('s)?") # re.I)
 ourmatches = pattern.finditer(t)
+tfinish = time.time()
+
 
 #Closing Out the Files
 dfile.close()
@@ -102,3 +105,5 @@ print ()
 t1 = time.time()
 total = t1-t0
 print(total)
+timetocreatedic = tfinish - tstart
+print("Time to create Dic", timetocreatedic)
